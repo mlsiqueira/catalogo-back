@@ -1,0 +1,17 @@
+const path = require('path');
+
+module.exports = {
+  /*
+    arquivo com as credenciais do DB (com isso já posso criar um DB via CLI
+    posso criar manualmente ou via `sequelize init` (json ou js):
+  */
+  'config': path.resolve(__dirname, 'server', 'config', 'database.js'),
+  // entidades
+  'models-path': path.resolve(__dirname, 'server', 'models'),
+  // data dummy:
+  'seeders-path': path.resolve(__dirname, 'server', 'database', 'seeders'),
+  /*
+    local onde são criadas as migrations:
+  */
+  'migrations-path': path.resolve(__dirname, 'server', 'database', 'migrations') 
+}
