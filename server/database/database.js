@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
-const dbConfig = require('../config/database')
+const dbConfig = require('../config/database');
 
-const Director = require('../models/director.model')
+const Director = require('../models/director.model');
 const Actor = require('../models/actor.model');
 const Movie = require('../models/movie.model');
 

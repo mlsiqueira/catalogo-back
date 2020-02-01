@@ -1,29 +1,16 @@
 const { Router } = require('express');
+const DirectorCtrl = require('../controllers/director.controller');
 
 const router = Router();
 
-router.get('/directors', (req, res) => {
-  res.json({ hello: 'get' })
-});
+router.get('/directors', DirectorCtrl.index);
 
-router.get('/directors/:id', (req, res) => {
-  const id = req.params.id;
-  res.json({ hello: 'get', id })
-});
+router.get('/directors/:id', DirectorCtrl.find);
 
-router.post('/directors', (req, res) => {
-  const body = req.body;
-  res.json({ hello: 'post', body })
-});
+router.post('/directors', DirectorCtrl.store);
 
-router.put('/directors/:id', (req, res) => {
-  const id = req.params.id;
-  res.json({ hello: 'put', id })
-})
+router.put('/directors/:id', DirectorCtrl.update)
 
-router.delete('/directors/:id', (req, res) => {
-  const id = req.params.id;
-  res.json({ hello: 'delete', id })
-})
+router.delete('/directors/:id', DirectorCtrl.delete)
 
 module.exports = router;
