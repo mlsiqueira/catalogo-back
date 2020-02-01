@@ -1,16 +1,16 @@
 const { Router } = require('express');
-const Actor = require('../controllers/actor.controller');
+const ActorCtrl = require('../controllers/actor.controller');
 
 const router = Router();
 
-router.get('/actors', Actor.index);
+router.get('/actors', ActorCtrl.index);
 
-router.get('/actors/:id', Actor.find);
+router.get('/actors/:id', ActorCtrl.find);
 
-router.post('/actors', Actor.store);
+router.post('/actors', ActorCtrl.store);
 
-router.put('/actors/:id', Actor.update)
+router.put('/actors/:id', ActorCtrl.update)
 
-router.delete('/actors/:id', Actor.delete)
+router.delete('/actors/:id', ActorCtrl.delete)
 
 module.exports = router;

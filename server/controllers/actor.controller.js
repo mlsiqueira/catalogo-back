@@ -37,6 +37,13 @@ const ActorCtrl = {
 
   async update(req, res) {
     const { id } = req.params;
+    const { name, bio, nationality, avatar  } = req.body;
+
+    const updateData = { };
+    if (name) { updateData.name = name };
+    if (bio) { updateData.bio = bio };
+    if (nationality) { updateData.nationality = nationality };
+    if (avatar) { updateData.avatar = avatar };
 
     const actor = await Actor.findByPk(id);
 
@@ -45,8 +52,8 @@ const ActorCtrl = {
     }
 
     try {
-      await actor.destroy();
-      return res.json({ ok: true, message: 'Deletado com sucesso' });
+      await actor.update(updateData);
+      return res.json({ ok: true, data: actor });
     } catch (error) {
       return res.status(500).json({ ok: false, error })
     }
