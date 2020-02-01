@@ -39,11 +39,11 @@ const DirectorCtrl = {
     const { id } = req.params;
     const { name, bio, nationality, avatar  } = req.body;
 
-    const updateData = { };
-    if (name) { updateData.name = name };
-    if (bio) { updateData.bio = bio };
-    if (nationality) { updateData.nationality = nationality };
-    if (avatar) { updateData.avatar = avatar };
+    const directorUpdate = { };
+    if (name) { directorUpdate.name = name };
+    if (bio) { directorUpdate.bio = bio };
+    if (nationality) { directorUpdate.nationality = nationality };
+    if (avatar) { directorUpdate.avatar = avatar };
 
     const director = await Director.findByPk(id);
 
@@ -52,7 +52,7 @@ const DirectorCtrl = {
     }
 
     try {
-      await director.update(updateData);
+      await director.update(directorUpdate);
       return res.json({ ok: true, data: director });
     } catch (error) {
       return res.status(500).json({ ok: false, error })
