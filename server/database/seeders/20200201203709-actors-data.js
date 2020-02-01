@@ -25,7 +25,7 @@ module.exports = {
         name: 'Adam Driver',
         nationality: 'EUA',
         bio: 'Adam Douglas Driver (San Diego, 19 de novembro de 1983) é um ator americano. Ele começou sua carreira aparecendo em vários curtas-metragens, programas e filmes para a televisão antes de fazer sua estreia no cinema em J. Edgar (2011). Posteriormente, teve papéis em Lincoln (2012), Frances Ha (2012), Inside Llewyn Davis (2013), Paterson (2017), dentre outros. Driver também se apresentou em peças de teatros de diversas produções da Broadway e Off-Broadway.',
-        avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Star_Wars-_The_Last_Jedi_Japan_Premiere_Red_Carpet-_Adam_Driver_%2827163437599%29_%28cropped%29.jpg/220px-Star_Wars-_The_Last_Jedi_Japan_Premiere_Red_Carpet-_Adam_Driver_%2827163437599%29_%28cropped%29.jpg'
+        avatar: 'https://en.wikipedia.org/wiki/Adam_Driver#/media/File:Star_Wars-_The_Last_Jedi_Japan_Premiere_Red_Carpet-_Adam_Driver_(27163437599)_(cropped).jpg'
       },
       {
         name: 'Daisy Ridley',
@@ -38,6 +38,24 @@ module.exports = {
         nationality: 'Inglaterra/UK',
         bio: 'John Boyega (Londres, 17 de março de 1992) é um ator britânico, mais conhecido por interpretar Finn, na triologia de Star Wars: O Despertar da Força(2015) Os Últimos Jedi(2017) e A Ascensão Skywalker(2019) Por este papel, ele venceu o BAFTA, em 2016, de Estrela revelação.',
         avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/John_Boyega_by_Gage_Skidmore.jpg/250px-John_Boyega_by_Gage_Skidmore.jpg'
+      },
+      {
+        name: 'Jeff Goldblum',
+        nationality: 'EUA',
+        bio: 'Goldblum nasceu e foi criado em West Homestead, um subúrbio de Pittsburgh. Sua mãe, Shirley ("née" Temeles), era uma locutora de rádio que mais tarde administrava uma empresa de equipamentos de cozinha e eletrodomésticos, e seu pai, Harold L. Goldblum, era um médico judeu.',
+        avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Jeff_Goldblum_by_Gage_Skidmore.jpg/240px-Jeff_Goldblum_by_Gage_Skidmore.jpg'
+      },
+      {
+        name: 'Samuel L. Jackson',
+        nationality: 'EUA',
+        bio: 'É casado com Latanya Richardson. Recebeu diversos prêmios por suas atuações cinematográficas, e atua em diversas mídias além de filmes, como séries de televisão, dublagem de videogames e etc. Samuel declarou que os filmes permitem-no "fazer coisas que via quando criança".',
+        avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Samuel_L._Jackson_2019_by_Glenn_Francis.jpg/220px-Samuel_L._Jackson_2019_by_Glenn_Francis.jpg'
+      },
+      {
+        name: 'Harrison Ford',
+        nationality: 'EUA',
+        bio: 'Filho de pai irlandês e mãe judia russa, Ford frequentou a faculdade de Inglês e Filosofia. Estreou no cinema em 1966, fazendo uma ponta em O ladrão conquistador. Desanimado com a sucessão de papéis insignificantes e com mulher e dois filhos para sustentar, Harrison Ford largou tudo em 1970, para ser carpinteiro. Porém, um de seus fregueses intercedeu junto ao diretor George Lucas para que ele fosse escolhido para o elenco de American Graffiti - Loucuras de Verão, que se revelou um estrondoso sucesso. Então, em 1973, ele retornou ao cinema, de onde não saiu mais.',
+        avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Harrison_Ford_by_Gage_Skidmore_3.jpg/220px-Harrison_Ford_by_Gage_Skidmore_3.jpg'
       }
     ], {});
   },

@@ -43,10 +43,12 @@ module.exports = {
       },
       createdAt: {
         type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()'),
         allowNull: false
       },
       updatedAt: {
         type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()'),
         allowNull: false
       }
     });
