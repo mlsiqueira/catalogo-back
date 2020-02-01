@@ -1,29 +1,16 @@
 const { Router } = require('express');
+const Actor = require('../controllers/actor.controller');
 
 const router = Router();
 
-router.get('/movies', (req, res) => {
-  res.json({ hello: 'get' })
-});
+router.get('/actors', Actor.index);
 
-router.get('/movies/:id', (req, res) => {
-  const id = req.params.id;
-  res.json({ hello: 'get', id })
-});
+router.get('/actors/:id', Actor.find);
 
-router.post('/movies', (req, res) => {
-  const body = req.body;
-  res.json({ hello: 'post', body })
-});
+router.post('/actors', Actor.store);
 
-router.put('/movies/:id', (req, res) => {
-  const id = req.params.id;
-  res.json({ hello: 'put', id })
-})
+router.put('/actors/:id', Actor.update)
 
-router.delete('/movies/:id', (req, res) => {
-  const id = req.params.id;
-  res.json({ hello: 'delete', id })
-})
+router.delete('/actors/:id', Actor.delete)
 
 module.exports = router;

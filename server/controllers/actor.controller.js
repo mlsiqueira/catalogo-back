@@ -20,7 +20,7 @@ const ActorCtrl = {
       }
       return res.json({ ok: true, data: actor });
     } catch (error) {
-      return res.json({ ok: false, error });
+      return res.status(500).json({ ok: false, error });
     }
   },
 
@@ -29,26 +29,43 @@ const ActorCtrl = {
 
     try {
       const newActor = await Actor.create({ name, bio, nationality, avatar })
-      return res.json({ ok: true, data: newActor });
+      return res.status(202).json({ ok: true, data: newActor });
     } catch (error) {
-      return res.json({ ok: false, error });
+      return res.status(500).json({ ok: false, error });
+    }
+  },
+
+  async update(req, res) {
+    const { id } = req.params;
+
+    const actor = await Actor.findByPk(id);
+
+    if (!actor) {
+      return res.status(400).json({ ok: false, error: { message: 'ator não encontrado' } });
+    }
+
+    try {
+      await actor.destroy();
+      return res.json({ ok: true, message: 'Deletado com sucesso' });
+    } catch (error) {
+      return res.status(500).json({ ok: false, error })
     }
   },
 
   async delete(req, res) {
     const { id } = req.params;
 
-    const movie = await Movie.findByPk(id);
+    const actor = await Actor.findByPk(id);
 
-    if (!movie) {
-      return res.status(400).json({ ok: false, error: { message: 'filme não encontrado' } });
+    if (!actor) {
+      return res.status(400).json({ ok: false, error: { message: 'ator não encontrado' } });
     }
 
     try {
-      await movie.destroy();
+      await actor.destroy();
       return res.json({ ok: true, message: 'Deletado com sucesso' });
     } catch (error) {
-      return res.json({ ok: false, error })
+      return res.status(500).json({ ok: false, error })
     }
   }
 }
