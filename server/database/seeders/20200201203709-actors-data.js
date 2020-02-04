@@ -25,7 +25,7 @@ module.exports = {
         name: 'Adam Driver',
         nationality: 'EUA',
         bio: 'Adam Douglas Driver (San Diego, 19 de novembro de 1983) é um ator americano. Ele começou sua carreira aparecendo em vários curtas-metragens, programas e filmes para a televisão antes de fazer sua estreia no cinema em J. Edgar (2011). Posteriormente, teve papéis em Lincoln (2012), Frances Ha (2012), Inside Llewyn Davis (2013), Paterson (2017), dentre outros. Driver também se apresentou em peças de teatros de diversas produções da Broadway e Off-Broadway.',
-        avatar: 'https://en.wikipedia.org/wiki/Adam_Driver#/media/File:Star_Wars-_The_Last_Jedi_Japan_Premiere_Red_Carpet-_Adam_Driver_(27163437599)_(cropped).jpg'
+        avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Adam_Driver_Cannes_2018.jpg/220px-Adam_Driver_Cannes_2018.jpg'
       },
       {
         name: 'Daisy Ridley',

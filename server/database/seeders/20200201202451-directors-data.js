@@ -19,7 +19,7 @@ module.exports = {
         name: 'Richard Marquand',
         nationality: 'País de Gales/UK',
         bio: 'Richard Marquand (Llanishen, Cardiff, 22 de setembro de 1937[1] — Londres, 4 de setembro de 1987) foi um diretor de cinema galês. Filho de um membro do Parlamento, ele estudou na Universidade de Cambridge e na França, e se especializou em línguas. Foi locutor de rádio antes de começar a rodar documentários para a BBC.',
-        avatar: 'https://upload.wikimedia.org/wikipedia/en/b/ba/RichardMarquand~.gif'
+        avatar: 'https://m.media-amazon.com/images/M/MV5BMjgwY2ZkYjEtNzgxZi00ZDIyLWJhZWItZjg1NGQ4OWE5ZTZhXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_.jpg'
       },
       {
         name: 'Steven Spielberg',

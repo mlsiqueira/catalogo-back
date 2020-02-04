@@ -10,7 +10,6 @@ module.exports = {
         directorId: 2,
         genre: 'Ação',
         releaseDate: new Date('1977', '05', '25'),
-        // releaseDate: new Date('1977/05/25').toISOString(),
         runtime: 121,
         inTheater: false
       },
@@ -21,7 +20,6 @@ module.exports = {
         directorId: 3,
         genre: 'Ação',
         releaseDate: new Date('1983', '25', '05'),
-        // releaseDate: new Date('1983/25/05').toISOString(),
         runtime: 134,
         inTheater: false
       },
@@ -32,7 +30,6 @@ module.exports = {
         directorId: 1,
         genre: 'Ação',
         releaseDate: new Date('2015', '12', '14'),
-        // releaseDate: new Date('2015/12/14').toISOString(),
         runtime: 135,
         inTheater: false
       },
@@ -43,7 +40,6 @@ module.exports = {
         directorId: 1,
         genre: 'Ação',
         releaseDate: new Date('2019', '12', '19'),
-        // releaseDate: new Date('2019/12/19').toISOString(),
         runtime: 142,
         inTheater: false
       },
@@ -54,7 +50,6 @@ module.exports = {
         directorId: 4,
         genre: 'Ação',
         releaseDate: new Date('1981', '06', '12'),
-        // releaseDate: new Date('1981/06/12').toISOString(),
         runtime: 115,
         inTheater: false
       },
@@ -65,7 +60,6 @@ module.exports = {
         directorId: 4,
         genre: 'Ação',
         releaseDate: new Date('1993', '06', '11'),
-        // releaseDate: new Date('1993/06/11').toISOString(),
         runtime: 126,
         inTheater: false
       },
@@ -75,7 +69,7 @@ module.exports = {
       //   poster: '',
       //   directorId: ,
       //   genre: '',
-      //   releaseDate: new Date('yyyy/mm/dd').toISOString(),
+      //   releaseDate: new Date('yyyy', 'mm', 'dd')
       //   runtime: '',
       //   inTheater: false
       // }
