@@ -61,7 +61,7 @@ const ActorCtrl = {
 
       return res.status(202).json(movie);
     } catch (error) {
-      return res.status(500).json({ ok: false, error, ...movie });
+      return res.status(500).json({ ok: false, error });
     }
   },
 
