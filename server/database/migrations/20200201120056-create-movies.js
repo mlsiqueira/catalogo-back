@@ -1,6 +1,6 @@
 'use strict';
 
-const genders = [ 'Ação', 'Aventura', 'Cinema de arte', 'Chanchada', 'Comédia', 'Comédia romântica', 'Comédia dramática', 'Comédia de ação', 'Dança', 'Documentário', 'Docuficção', 'Drama', 'Espionagem', 'Escolar', 'Faroeste', 'Fantasia científica', 'Ficção científica', 'Filmes de guerra', 'Fantasia', 'Guerra', 'Musical', 'Filme policial', 'Romance', 'Seriado', 'Suspense', 'Terror' ];
+const genres = [ 'Ação', 'Aventura', 'Cinema de arte', 'Chanchada', 'Comédia', 'Comédia romântica', 'Comédia dramática', 'Comédia de ação', 'Dança', 'Documentário', 'Docuficção', 'Drama', 'Espionagem', 'Escolar', 'Faroeste', 'Fantasia científica', 'Ficção científica', 'Filmes de guerra', 'Fantasia', 'Guerra', 'Musical', 'Filme policial', 'Romance', 'Seriado', 'Suspense', 'Terror' ];
 
 
 module.exports = {
@@ -31,7 +31,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       genre: {
-        type: Sequelize.ENUM(genders),
+        type: Sequelize.ENUM(genres),
         allowNull: false
       },
       releaseDate: {

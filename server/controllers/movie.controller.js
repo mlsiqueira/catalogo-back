@@ -23,7 +23,7 @@ const ActorCtrl = {
     await seedActors();
     try {
       const movies = await Movie.findAll(movieReturnConf);
-      return res.json({ ok: true, data: movies });
+      return res.json(movies);
     } catch (error) {
       return res.status(500).json({ ok: false, error });
     }
@@ -37,61 +37,37 @@ const ActorCtrl = {
       if (!movie) {
         return res.status(400).json({ ok: false, error: { message: 'filme não encontrado' } });
       }
-      return res.json({ ok: true, data: movie });
+      return res.json(movie);
     } catch (error) {
       return res.status(500).json({ ok: false, error });
     }
   },
 
   async store(req, res) {
-    const {
-      title, desc, genre, directorId, actorIds, poster, releaseDate, runtime, inTheater
-    } = req.body;
-
-    console.log('\nDADOS QUE CHEGAM AO SERVIDOR:\n', req.body);
+    const { body } = req;
 
     try {
-      const movie = await Movie.create({
-        title, desc, genre, directorId, poster, releaseDate, runtime, inTheater 
+      const movie = await Movie.create( body, {
+        fields: ['title', 'desc', 'genre', 'directorId', 'poster', 'releaseDate', 'runtime', 'inTheater']
       });
 
-      console.log('\nOBJETO CRIADO NA BASE:\n', movie);
-
       if (actorIds && typeof actorIds === 'string') {
-        console.log('ADC UM ATOR')
         await movie.addActor(actorIds);
       } else {
-        console.log("\n\n ISSO ACONTECEU \n\n");
         await actorIds.forEach(async actor => {
-          console.log('ADC UM ATOR')
           await movie.addActor(actor);
         });
       }
 
-      console.log('\nPOS ATORES:\n');
-
-      return res.status(202).json({ ok: true, data: movie });
+      return res.status(202).json(movie);
     } catch (error) {
-      return res.status(500).json({ ok: false, error });
+      return res.status(500).json({ ok: false, error, ...movie });
     }
   },
 
   async update(req, res) {
-    // TODO: verificar a forma como serão atualizados os atores e diretores
     const { id } = req.params;
-    const {
-      title, desc, genre, directorId, actorIds, poster, releaseDate, runtime, inTheater,
-    } = req.body;
-
-    const movieUpdate = { };
-    if (title) { movieUpdate.title = title };
-    if (desc) { movieUpdate.desc = desc };
-    if (genre) { movieUpdate.genre = genre };
-    if (directorId) { movieUpdate.directorId = directorId };
-    if (poster) { movieUpdate.poster = poster };
-    if (releaseDate) { movieUpdate.releaseDate = releaseDate };
-    if (runtime) { movieUpdate.runtime = runtime };
-    if (inTheater) { movieUpdate.inTheater = inTheater };
+    const { body } = req;
   
     const movie = await Movie.findByPk(id);
 
@@ -100,8 +76,8 @@ const ActorCtrl = {
     }
 
     try {
-      await movie.update(movieUpdate);
-      return res.json({ ok: true, data: movie });
+      await movie.update(body);
+      return res.json(movie);
     } catch (error) {
       return res.status(500).json({ ok: false, error })
     }
@@ -125,6 +101,7 @@ const ActorCtrl = {
   }
 }
 
+// seed temporário (obs.: estudar como fazer seeds com relacionamentos)
 async function seedActors() {
   return Promise.all([
     Movie.findByPk(1).then(m => m.addActor(['1', '2', '3'])),

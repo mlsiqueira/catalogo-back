@@ -3,14 +3,14 @@ const DirectorCtrl = require('../controllers/director.controller');
 
 const router = Router();
 
-router.get('/directors', DirectorCtrl.index);
+router.get('/api/directors', DirectorCtrl.index);
 
-router.get('/directors/:id', DirectorCtrl.find);
+router.get('/api/directors/:id', DirectorCtrl.find);
 
-router.post('/directors', DirectorCtrl.store);
+router.post('/api/directors', DirectorCtrl.store);
 
-router.put('/directors/:id', DirectorCtrl.update)
+router.put('/api/directors/:id', DirectorCtrl.update)
 
-router.delete('/directors/:id', DirectorCtrl.delete)
+router.delete('/api/directors/:id', DirectorCtrl.delete)
 
 module.exports = router;

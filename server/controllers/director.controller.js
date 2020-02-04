@@ -1,10 +1,15 @@
 const Director = require('../models/director.model');
 
+const returnConf = {
+  attributes: ['id', 'name', 'nationality', 'bio', 'avatar']
+}
+
+
 const DirectorCtrl = {
   async index(_, res) {
     try {
-      const directors = await Director.findAll();
-      return res.json({ ok: true, data: directors });
+      const directors = await Director.findAll(returnConf);
+      return res.json(directors);
     } catch (error) {
       return res.status(500).json({ ok: false, error });
     }
@@ -14,22 +19,24 @@ const DirectorCtrl = {
     const { id } = req.params;
 
     try {
-      const director = await Director.findByPk(id);
+      const director = await Director.findByPk(id, returnConf);
       if (!director) {
         return res.status(400).json({ ok: false, error: { message: 'director não encontrado' } });
       }
-      return res.json({ ok: true, data: director });
+      return res.json(director);
     } catch (error) {
       return res.status(500).json({ ok: false, error });
     }
   },
 
   async store(req, res) {
-    const { name, bio, nationality, avatar } = req.body;
+    const { body } = req;
 
     try {
-      const newDirector = await Director.create({ name, bio, nationality, avatar })
-      return res.status(202).json({ ok: true, data: newDirector });
+      const newDirector = await Director.create(body, {
+        fields: ['name', 'bio', 'nationality', 'avatar']
+      });
+      return res.status(202).json(newDirector);
     } catch (error) {
       return res.status(500).json({ ok: false, error });
     }
@@ -37,13 +44,7 @@ const DirectorCtrl = {
 
   async update(req, res) {
     const { id } = req.params;
-    const { name, bio, nationality, avatar  } = req.body;
-
-    const directorUpdate = { };
-    if (name) { directorUpdate.name = name };
-    if (bio) { directorUpdate.bio = bio };
-    if (nationality) { directorUpdate.nationality = nationality };
-    if (avatar) { directorUpdate.avatar = avatar };
+    const { body  } = req;
 
     const director = await Director.findByPk(id);
 
@@ -52,8 +53,10 @@ const DirectorCtrl = {
     }
 
     try {
-      await director.update(directorUpdate);
-      return res.json({ ok: true, data: director });
+      await director.update(body, {
+        fields: ['name', 'bio', 'nationality', 'avatar']
+      });
+      return res.json(director);
     } catch (error) {
       return res.status(500).json({ ok: false, error })
     }

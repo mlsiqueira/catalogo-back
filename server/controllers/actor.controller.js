@@ -1,10 +1,15 @@
 const Actor = require('../models/actor.model');
 
+const returnConf = {
+  attributes: ['id', 'name', 'nationality', 'bio', 'avatar']
+}
+
+
 const ActorCtrl = {
   async index(_, res) {
     try {
-      const actors = await Actor.findAll();
-      return res.json({ ok: true, data: actors });
+      const actors = await Actor.findAll(returnConf);
+      return res.json(actors);
     } catch (error) {
       return res.status(500).json({ ok: false, error });
     }
@@ -14,22 +19,24 @@ const ActorCtrl = {
     const { id } = req.params;
 
     try {
-      const actor = await Actor.findByPk(id);
+      const actor = await Actor.findByPk(id, returnConf);
       if (!actor) {
         return res.status(400).json({ ok: false, error: { message: 'ator não encontrado' } });
       }
-      return res.json({ ok: true, data: actor });
+      return res.json(actor);
     } catch (error) {
       return res.status(500).json({ ok: false, error });
     }
   },
 
   async store(req, res) {
-    const { name, bio, nationality, avatar } = req.body;
+    const { body } = req;
 
     try {
-      const newActor = await Actor.create({ name, bio, nationality, avatar })
-      return res.status(202).json({ ok: true, data: newActor });
+      const newActor = await Actor.create( body, {
+        fields: ['name', 'bio', 'nationality', 'avatar' ]
+      });
+      return res.status(202).json(newActor);
     } catch (error) {
       return res.status(500).json({ ok: false, error });
     }
@@ -37,13 +44,7 @@ const ActorCtrl = {
 
   async update(req, res) {
     const { id } = req.params;
-    const { name, bio, nationality, avatar  } = req.body;
-
-    const updateData = { };
-    if (name) { updateData.name = name };
-    if (bio) { updateData.bio = bio };
-    if (nationality) { updateData.nationality = nationality };
-    if (avatar) { updateData.avatar = avatar };
+    const { body } = req;
 
     const actor = await Actor.findByPk(id);
 
@@ -52,10 +53,12 @@ const ActorCtrl = {
     }
 
     try {
-      await actor.update(updateData);
-      return res.json({ ok: true, data: actor });
+      await actor.update(body, {
+        fields: ['name', 'bio', 'nationality', 'avatar']
+      });
+      return res.json(actor);
     } catch (error) {
-      return res.status(500).json({ ok: false, error })
+      return res.status(500).json({ ok: false, error });
     }
   },
 
