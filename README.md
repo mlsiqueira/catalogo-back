@@ -6,11 +6,15 @@ Ao finalizar o desenvolvimento, envie o projeto para um repositório do GitHub e
 
 ## Sobre o projeto
 
-Utilizei Angular 8 o código fonte está disponível em : []()
+Utilizei Angular 8, Sequelize, express e MariaDB.
+
+O código fonte do front Angular está disponível em : [https://github.com/mlsiqueira/catalogo-front](https://github.com/mlsiqueira/catalogo-front).
 
 ## Instalação:
 
-1. Criar um banco de dados chamada `catalogo` (_Obs.: utilizei MariaDB_), editar o arquivo `server/config/database.js`e passar uma senha, usuário e outros dados se necessário (_opção mais fácil ao utilizar docker, por exemplo_):
+1. Criar um banco de dados chamada `catalogo` (_Obs.: utilizei MariaDB_);
+
+2. opcional: editar o arquivo `server/config/database.js`e passar uma senha, usuário e outros dados (_opção mais fácil ao utilizar docker, por exemplo_):
 
 ```js
 // database.js
@@ -23,7 +27,7 @@ module.exports = {
 }
 ```
 
-2. instalar as dependências e rodar migrations e seeds:
+3. instalar as dependências e rodar migrations e seeds:
 
 ```zsh
 npm i
